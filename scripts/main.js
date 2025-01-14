@@ -2,7 +2,7 @@ const taskForm = document.getElementById("task-form");
 const taskInput = document.getElementById("task-input");
 const taskList = document.getElementById("task-list");
 
-taskForm = addEventListener("submit", (e) => {
+taskForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const taskText = taskInput.value;
@@ -15,7 +15,16 @@ taskForm = addEventListener("submit", (e) => {
     }
 })
 
+taskList.addEventListener("click", (e) => {
+    if(e.target.tagName === "LI"){
+        console.log(`Hiciste click en: ${e.target.textContent}`);
 
+        document.querySelectorAll("#taskList li").forEach((task) => {
+            task.classList.remove("selected");
+        });
+        e.target.classList.add("selected");
+    }
+})
 
 
 

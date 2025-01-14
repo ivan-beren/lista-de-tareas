@@ -62,8 +62,19 @@ ul li {
     align-items: center;
 }
 
+ul li:hover {
+    background-color: #5de7dd;
+    cursor: pointer;
+}
+
 ul li:last-child {
     border-bottom: none;
+}
+
+.selected {
+    background-color: #41b681;
+    border: 1px solid #0f5132;
+    color: #0f5132;
 }
 
 footer {
