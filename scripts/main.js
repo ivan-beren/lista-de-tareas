@@ -19,16 +19,28 @@ taskList.addEventListener("click", (e) => {
     if(e.target.tagName === "LI"){
         console.log(`Hiciste click en: ${e.target.textContent}`);
 
-        document.querySelectorAll("#taskList li").forEach((task) => {
-            task.classList.remove("selected");
-        });
-        e.target.classList.add("selected");
+        if(e.target.classList.contains("selected")){
+            e.target.classList.remove("selected");
+        } else {
+            const previouslySelected = document.querySelector(".selected");
+
+            if(previouslySelected){
+                previouslySelected.classList.remove("selected");
+            }
+
+            e.target.classList.add("selected");
+
+        }
     }
 })
 
-
-
 /*
+        document.querySelectorAll("#taskList li").forEach((task) => {
+            console.log(task);
+            task.classList.remove("selected");
+        });
+
+e.target.classList.add("selected");
 
 preventDefault  // Previene que el formulario recargue la página
 
