@@ -4,6 +4,8 @@ const taskList = document.getElementById("task-list");
 
 const deleteButton = document.getElementById("delete-button");
 
+const updateButton = document.getElementById("update-button");
+
 taskForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -46,7 +48,22 @@ deleteButton.addEventListener("click", () => {
     }
 })
 
+updateButton.addEventListener("click", () => {
+    const selectedTask = document.querySelector(".selected");
 
+    if(selectedTask){
+        const newContent = prompt("Escribe el nuevo contenido para la tarea.")
+
+        if(newContent && newContent.trim() !== ""){
+            selectedTask.textContent = newContent;
+            alert("Tarea actualizada con exito.")
+        }else{
+            alert("El contenido no puede estar vacio.")
+        }
+    }else{
+        alert("No hay tarea seleccionada para actualizar.");
+    }
+})
 
 
 
