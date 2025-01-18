@@ -15,13 +15,15 @@ taskForm.addEventListener("submit", (e) => {
     if(taskText !== ""){
         const newTask = document.createElement("li");
 
+        const taskContent = document.createTextNode(taskText);
+
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.classList.add("complete-task");
 
-        newTask.append(checkbox);
+        newTask.append(taskContent, checkbox);
 
-        newTask.textContent = taskText;
+        //newTask.textContent = taskText;
         taskList.append(newTask);
         taskInput.value = "";
     }
