@@ -77,6 +77,11 @@ ul li:last-child {
     color: #0f5132;
 }
 
+.complete-task {
+    margin-left: 1rem;
+    accent-color: green;
+}
+
 footer {
     text-align: center;
     margin-top: 2rem;

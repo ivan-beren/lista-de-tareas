@@ -8,11 +8,19 @@ const updateButton = document.getElementById("update-button");
 
 taskForm.addEventListener("submit", (e) => {
     e.preventDefault();
+    console.log(e);
 
     const taskText = taskInput.value;
 
     if(taskText !== ""){
         const newTask = document.createElement("li");
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.classList.add("complete-task");
+
+        newTask.append(checkbox);
+
         newTask.textContent = taskText;
         taskList.append(newTask);
         taskInput.value = "";
@@ -86,5 +94,8 @@ createElement("li") // Crea un nuevo <li>
 textContent      // Le asigna el texto ingresado
 
 appendChild      // Lo añade a la lista de tareas
+
+let tareaNueva = `<li>${taskText}</li>`;
+taskList.innerHTML += tareaNueva;
 
 */
