@@ -29,6 +29,13 @@ taskForm.addEventListener("submit", (e) => {
     }
 })
 
+taskList.addEventListener("change", (e) => {
+    if(e.target.classList.contains("complete-task")){
+        
+    }
+})
+
+
 taskList.addEventListener("click", (e) => {
     if(e.target.tagName === "LI"){
         console.log(`Hiciste click en: ${e.target.textContent}`);
