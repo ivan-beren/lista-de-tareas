@@ -31,7 +31,15 @@ taskForm.addEventListener("submit", (e) => {
 
 taskList.addEventListener("change", (e) => {
     if(e.target.classList.contains("complete-task")){
-        
+        const taskItem = e.target.parentElement;
+
+        if (e.target.checked) {
+            // Si está marcado
+            taskItem.classList.add("completed");
+        } else {
+            // Si está desmarcado
+            taskItem.classList.remove("completed");
+        }
     }
 })
 

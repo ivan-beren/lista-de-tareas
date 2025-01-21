@@ -77,6 +77,12 @@ ul li:last-child {
     color: #0f5132;
 }
 
+.completed {
+    text-decoration: line-through;
+    background-color: #d4edda; /* Fondo verde claro */
+    color: gray;
+}
+
 .complete-task {
     margin-left: 1rem;
     accent-color: green;
