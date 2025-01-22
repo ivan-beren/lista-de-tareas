@@ -35,7 +35,7 @@ taskForm.addEventListener("submit", (e) => {
         taskInput.value = "";
         updateTaskCounter();
     }
-})
+});
 
 taskList.addEventListener("change", (e) => {
     if(e.target.classList.contains("complete-task")){
@@ -49,7 +49,7 @@ taskList.addEventListener("change", (e) => {
             taskItem.classList.remove("completed");
         }
     }
-})
+});
 
 
 taskList.addEventListener("click", (e) => {
@@ -69,17 +69,18 @@ taskList.addEventListener("click", (e) => {
 
         }
     }
-})
+});
 
 deleteButton.addEventListener("click", () => {
     const selectedTask = document.querySelector(".selected");
 
     if(selectedTask){
         selectedTask.remove();
+        updateTaskCounter();
     }else{
         alert("No hay tarea seleccionada para eliminar.")
     }
-})
+});
 
 updateButton.addEventListener("click", () => {
     const selectedTask = document.querySelector(".selected");
@@ -96,7 +97,7 @@ updateButton.addEventListener("click", () => {
     }else{
         alert("No hay tarea seleccionada para actualizar.");
     }
-})
+});
 
 
 
