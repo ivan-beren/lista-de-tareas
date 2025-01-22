@@ -6,6 +6,13 @@ const deleteButton = document.getElementById("delete-button");
 
 const updateButton = document.getElementById("update-button");
 
+const taskCounter = document.getElementById("task-counter");
+
+function updateTaskCounter() {
+    const totalTask = taskList.children.length;
+    taskCounter.textContent = `Total de tareas: ${totalTask}`;
+}
+
 taskForm.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log(e);
@@ -26,6 +33,7 @@ taskForm.addEventListener("submit", (e) => {
         //newTask.textContent = taskText;
         taskList.append(newTask);
         taskInput.value = "";
+        updateTaskCounter();
     }
 })
 
@@ -89,7 +97,6 @@ updateButton.addEventListener("click", () => {
         alert("No hay tarea seleccionada para actualizar.");
     }
 })
-
 
 
 
