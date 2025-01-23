@@ -49,6 +49,14 @@ form button:hover {
     background-color: #0056b3;
 }
 
+#clear-button {
+    background-color: #dc3545;
+}
+
+#clear-button:hover {
+    background-color: #a71d2a;
+}
+
 ul {
     list-style: none;
     margin: 0;
