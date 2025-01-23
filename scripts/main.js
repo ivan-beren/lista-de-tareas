@@ -8,6 +8,8 @@ const updateButton = document.getElementById("update-button");
 
 const taskCounter = document.getElementById("task-counter");
 
+const clearButton = document.getElementById("clear-button");
+
 function updateTaskCounter() {
     const totalTask = taskList.children.length;
     taskCounter.textContent = `Total de tareas: ${totalTask}`;
@@ -71,17 +73,6 @@ taskList.addEventListener("click", (e) => {
     }
 });
 
-deleteButton.addEventListener("click", () => {
-    const selectedTask = document.querySelector(".selected");
-
-    if(selectedTask){
-        selectedTask.remove();
-        updateTaskCounter();
-    }else{
-        alert("No hay tarea seleccionada para eliminar.")
-    }
-});
-
 updateButton.addEventListener("click", () => {
     const selectedTask = document.querySelector(".selected");
 
@@ -99,6 +90,21 @@ updateButton.addEventListener("click", () => {
     }
 });
 
+deleteButton.addEventListener("click", () => {
+    const selectedTask = document.querySelector(".selected");
+
+    if(selectedTask){
+        selectedTask.remove();
+        updateTaskCounter();
+    }else{
+        alert("No hay tarea seleccionada para eliminar.")
+    }
+});
+
+clearButton.addEventListener("click", () => {
+    taskList.innerHTML = "";
+    updateTaskCounter();
+})
 
 
 
