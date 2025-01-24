@@ -2,9 +2,9 @@ const taskForm = document.getElementById("task-form");
 const taskInput = document.getElementById("task-input");
 const taskList = document.getElementById("task-list");
 
-const deleteButton = document.getElementById("delete-button");
-
 const updateButton = document.getElementById("update-button");
+
+const deleteButton = document.getElementById("delete-button");
 
 const taskCounter = document.getElementById("task-counter");
 
@@ -12,7 +12,11 @@ const clearButton = document.getElementById("clear-button");
 
 function updateTaskCounter() {
     const totalTask = taskList.children.length;
-    taskCounter.textContent = `Total de tareas: ${totalTask}`;
+    if(totalTask === 0){
+        taskCounter.textContent = "Total de tareas: 0";
+    }else{
+        taskCounter.textContent = `Total de tareas: ${totalTask}`;
+    }
 }
 
 taskForm.addEventListener("submit", (e) => {
