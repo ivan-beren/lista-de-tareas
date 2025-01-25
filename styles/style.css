@@ -25,9 +25,9 @@ header {
 }
 
 header h1 {
-    font-size: 1.5rem;
-    color: #333;
-    padding-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #343a40;
+    margin-bottom: 1rem;
 }
 
 #task-form {
@@ -72,6 +72,13 @@ form button:hover {
     background-color: #bd2130;
 }
 
+#task-counter {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: #495057;
+}
+
 ul {
     list-style: none;
     margin: 0;
@@ -79,15 +86,21 @@ ul {
 }
 
 ul li {
-    padding: 0.5rem;
-    border-bottom: 1px solid #333;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+
+    
 }
 
 ul li:hover {
-    background-color: #e9ecef;
+    background-color: #f1f3f5;
     cursor: pointer;
 }
 
@@ -102,9 +115,10 @@ ul li:last-child {
 }
 
 .completed {
-    text-decoration: line-through;
-    background-color: #d4edda; /* Fondo verde claro */
-    color: gray;
+    text-decoration: none;
+    background-color: #e9f7ef;
+    color: #155724;
+    border-left: 4px solid #28a745;
 }
 
 .complete-task {
