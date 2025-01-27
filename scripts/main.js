@@ -11,16 +11,35 @@ const taskCounter = document.getElementById("task-counter");
 const clearButton = document.getElementById("clear-button");
 
 function saveTask() {
-    const Tasks = [];
+    const tasks = [];
     taskList.querySelectorAll("li").forEach((task) => {
         tasks.push({
             text: task.firstChild.textContent,
             completed: task.classList.contains("completed"),
         });
     });
-    localStorage.setItem("tasks", JSON.stringify(Tasks));
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+function loadTask() {
+    const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    savedTasks.forEach(({text, completed}) => {
+        const newTask = document.createElement("li");
+        const taskContent = document.createTextNode(text);
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.classList.add("completed");
+        if(completed){
+            newTask.classList.add("completed");
+            checkbox.checked = true;
+        }
+        newTask.append(taskContent, checkbox);
+        taskList.append(newTask);
+    });
+    updateTaskCounter();
+}
+
+loadTask();
 
 function updateTaskCounter() {
     const totalTask = taskList.children.length;
@@ -52,6 +71,7 @@ taskForm.addEventListener("submit", (e) => {
         taskList.append(newTask);
         taskInput.value = "";
         updateTaskCounter();
+        saveTask();
     }
 });
 
@@ -112,6 +132,7 @@ deleteButton.addEventListener("click", () => {
     if(selectedTask){
         selectedTask.remove();
         updateTaskCounter();
+        saveTask();
     }else{
         alert("No hay tarea seleccionada para eliminar.")
     }
@@ -120,6 +141,7 @@ deleteButton.addEventListener("click", () => {
 clearButton.addEventListener("click", () => {
     taskList.innerHTML = "";
     updateTaskCounter();
+    saveTask();
 })
 
 
