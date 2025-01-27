@@ -10,6 +10,18 @@ const taskCounter = document.getElementById("task-counter");
 
 const clearButton = document.getElementById("clear-button");
 
+function saveTask() {
+    const Tasks = [];
+    taskList.querySelectorAll("li").forEach((task) => {
+        tasks.push({
+            text: task.firstChild.textContent,
+            completed: task.classList.contains("completed"),
+        });
+    });
+    localStorage.setItem("tasks", JSON.stringify(Tasks));
+}
+
+
 function updateTaskCounter() {
     const totalTask = taskList.children.length;
     if(totalTask === 0){
