@@ -145,8 +145,31 @@ clearButton.addEventListener("click", () => {
 })
 
 async function fetchTasks() {
-    const response = await fetch("https://jsonplaceholder.typicode.com/todos?_limit=5");
-    const tasks = await response.json();
+    try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/todos?_limit=5");
+        const tasks = await response.json();
+
+        tasks.forEach(({ title, completed }) => {
+            const newTask = document.createElement("li");
+            const taskContent = document.createTextNode(title);
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.classList.add("complete-task");
+            checkbox.checked = completed;
+
+            if (completed) {
+                newTask.classList.add("completed");
+            }
+
+            newTask.append(taskContent, checkbox);
+            taskList.append(newTask);
+        });
+
+        updateTaskCounter();
+
+    } catch (error) {
+        console.error("Error obteniendo las tareas:", error);
+    }
 }
 
 fetchTasks();
