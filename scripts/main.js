@@ -172,6 +172,26 @@ async function fetchTasks() {
     }
 }
 
+async function addTaskToServer(title) {
+    try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/todos", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ title, completed: false })
+        });
+
+        const newTask = await response.json();
+        console.log("Tarea creada en el servidor:", newTask);
+        
+        return newTask;
+    } catch (error) {
+        console.error("Error al agregar tarea:", error);
+    }
+}
+
+
 fetchTasks();
 
 
