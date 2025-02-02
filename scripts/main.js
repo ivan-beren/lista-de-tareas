@@ -191,6 +191,9 @@ async function addTaskToServer(title) {
     }
 }
 
+taskForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+})
 
 fetchTasks();
 
